@@ -6,9 +6,10 @@
 //
 
 import Observation
+import Combine
 
 @MainActor
 @Observable
-final class AppNavigationState {
+final class AppNavigationState: ObservableObject {
     var settingItemIdentifier: SettingItemIdentifier = .general
 }
