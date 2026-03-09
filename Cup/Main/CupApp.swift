@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct CupApp: App {
     
-    @ObservedObject var appState = AppState()
+    var appState = AppState()
     
     var body: some Scene {
         SettingsWindow(appState: appState)
