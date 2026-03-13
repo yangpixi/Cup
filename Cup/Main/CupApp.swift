@@ -9,8 +9,12 @@ import SwiftUI
 
 @main
 struct CupApp: App {
-    
+    @NSApplicationDelegateAdaptor var appDelegate: AppDelegate
     var appState = AppState()
+    
+    init() {
+        appDelegate.setAppState(from: appState)
+    }
     
     var body: some Scene {
         SettingsWindow(appState: appState)
