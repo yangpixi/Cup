@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		4A953AB02F5D3FC500743860 /* Cup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cup.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A953C432F5FDE8C00743860 /* Cup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		4A953AB22F5D3FC500743860 /* Cup */ = {
+		4A953BF12F5D49EF00743860 /* Cup */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Cup;
 			sourceTree = "<group>";
@@ -32,17 +32,9 @@
 		4A953AA72F5D3FC500743860 = {
 			isa = PBXGroup;
 			children = (
-				4A953AB22F5D3FC500743860 /* Cup */,
-				4A953AB12F5D3FC500743860 /* Products */,
+				4A953BF12F5D49EF00743860 /* Cup */,
+				4A953C432F5FDE8C00743860 /* Cup.app */,
 			);
-			sourceTree = "<group>";
-		};
-		4A953AB12F5D3FC500743860 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4A953AB02F5D3FC500743860 /* Cup.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -61,13 +53,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				4A953AB22F5D3FC500743860 /* Cup */,
+				4A953BF12F5D49EF00743860 /* Cup */,
 			);
 			name = Cup;
 			packageProductDependencies = (
 			);
 			productName = Cup;
-			productReference = 4A953AB02F5D3FC500743860 /* Cup.app */;
+			productReference = 4A953C432F5FDE8C00743860 /* Cup.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -95,7 +87,7 @@
 			mainGroup = 4A953AA72F5D3FC500743860;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 4A953AB12F5D3FC500743860 /* Products */;
+			productRefGroup = 4A953AA72F5D3FC500743860;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -255,6 +247,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -285,6 +278,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
