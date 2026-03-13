@@ -27,6 +27,10 @@ class SettingsWindowController {
         /// activate the window
         appState.activate(withPolicy: .regular)
     }
+    
+    @objc func quitApplication() {
+        NSApp.terminate(nil)
+    }
 }
 
 private extension Logger {

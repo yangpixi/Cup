@@ -32,6 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     /// ensure application not to be stoped  by system
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        appState?.deactivate(withPolicy: .accessory)
         return false
     }
     
