@@ -29,6 +29,16 @@ class MenuBarItems {
         
         menu.addItem(prefItem)
         
+        menu.addItem(.separator())
+        
+        let quitItem = NSMenuItem(
+            title: "Quit Cup".localized,
+            action: #selector(SettingsWindowController.quitApplication),
+            keyEquivalent: "q"
+        )
+        quitItem.target = appState.settingsWindowController
+        
+        menu.addItem(quitItem)
         return menu
     }
 }

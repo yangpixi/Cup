@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIIntrospect
 
 struct SettingsView: View {
     @Environment(AppNavigationState.self) var navigationState
@@ -13,42 +14,63 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationSplitView {
-            sideBar
+            sidebar
         } detail: {
-            Text("TEST")
-        }.navigationTitle(navigationState.settingItemIdentifier.localizer)
-    }
-    
-    @ViewBuilder
-    private var sideBar: some View {
-        List(selection: Bindable(navigationState).settingItemIdentifier) {
-            Section {
-                ForEach(SettingItemIdentifier.allCases, id: \.self) { item in
-                    items(for: item)
-                }
-            } header: {
-                Text("Cup")
-                    .font(.system(size: 25, weight: .medium))
-                    .foregroundStyle(.primary)
-                    .padding(.vertical, 10)
+            detailView
+        }
+        .navigationTitle(navigationState.settingItemIdentifier.localizer)
+        .introspect(.navigationSplitView, on: .macOS(.v15, .v26)) { splitview in
+            if let delegate = splitview.delegate as? NSSplitViewController {
+                delegate.splitViewItems.first?.canCollapse = false
+                delegate.splitViewItems.first?.canCollapseFromWindowResize = false
             }
         }
     }
     
     @ViewBuilder
-    private func items(for identifiers: SettingItemIdentifier) -> some View {
+        private var sidebar: some View {
+            List(selection: Bindable(navigationState).settingItemIdentifier) {
+                Section {
+                    ForEach(SettingItemIdentifier.allCases, id: \.self) { items in
+                        item(for: items)
+                    }
+                } header: {
+                    Text("Cup")
+                        .font(.system(size: 36, weight: .medium))
+                        .foregroundStyle(.primary)
+                        .padding(.vertical, 20)
+                }
+            }
+            .listStyle(.sidebar)
+            .removeSidebarToggle()
+            .scrollDisabled(true)
+            .navigationSplitViewColumnWidth(sidebarWidth)
+        }
+    
+    @ViewBuilder
+    private var detailView: some View {
+        switch navigationState.settingItemIdentifier {
+        case .about:
+            AboutSettingPanel()
+        case .general:
+            GeneralSettingPanel()
+        }
+    }
+    
+    @ViewBuilder
+    private func item(for identifiers: SettingItemIdentifier) -> some View {
         Label {
             Text(identifiers.localizer)
                 .font(.system(size: sidebarItemFontSize))
-                .padding(.leading, 5)
+                .padding(.leading, 2)
         } icon: {
-            icons(for: identifiers).resource
+            icon(for: identifiers).resource
         }
         .frame(height: sidebarItemHeight)
         .padding(.horizontal, 5)
     }
     
-    private func icons(for identifiers: SettingItemIdentifier) -> IconResource {
+    private func icon(for identifiers: SettingItemIdentifier) -> IconResource {
         switch identifiers {
         case .about: .systemSymbol("cup.and.saucer")
         case .general: .systemSymbol("gearshape")

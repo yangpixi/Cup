@@ -21,11 +21,15 @@ class SettingsWindowController {
         }
         /// open window
         with(EnvironmentValues()) { env in
-            env.openWindow(id: Constant.settingWindowId)
+            env.openWindow(id: Constants.settingWindowId)
         }
         
         /// activate the window
         appState.activate(withPolicy: .regular)
+    }
+    
+    @objc func quitApplication() {
+        NSApp.terminate(nil)
     }
 }
 

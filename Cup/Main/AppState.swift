@@ -27,11 +27,11 @@ final class AppState {
     
     @objc func openSettingsWindow() {
         with(EnvironmentValues()) { env in
-            env.openWindow(id: Constant.settingWindowId)
+            env.openWindow(id: Constants.settingWindowId)
         }
     }
     
-    /// activate View
+    /// activate the app
     func activate(withPolicy policy: NSApplication.ActivationPolicy) {
         func activate() {
             if let frontApp = NSWorkspace.shared.frontmostApplication {
@@ -51,7 +51,16 @@ final class AppState {
                 activate()
             }
         }
-        
+    }
+    
+    /// Deactivates the app and sets its activation policy to the given value.
+    func deactivate(withPolicy policy: NSApplication.ActivationPolicy) {
+        if let nextApp = NSWorkspace.shared.runningApplications.first(where: { $0 != .current }) {
+            NSApp.yieldActivation(to: nextApp)
+        } else {
+            NSApp.deactivate()
+        }
+        NSApp.setActivationPolicy(policy)
     }
     
     func setAppDelegate(from appDelegate: AppDelegate) {
