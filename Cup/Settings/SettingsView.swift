@@ -44,6 +44,7 @@ struct SettingsView: View {
             .listStyle(.sidebar)
             .removeSidebarToggle()
             .scrollDisabled(true)
+            .navigationSplitViewColumnWidth(sidebarWidth)
         }
     
     @ViewBuilder
