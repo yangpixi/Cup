@@ -13,7 +13,7 @@ struct Logger {
 
     /// Creates a logger for Cup using the specified category.
     init(category: String) {
-        self.base = os.Logger(subsystem: Constant.bundleIdentifier, category: category)
+        self.base = os.Logger(subsystem: Constants.bundleIdentifier, category: category)
     }
 
     /// Logs the given informative message to the logger.

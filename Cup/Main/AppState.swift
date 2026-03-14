@@ -27,7 +27,7 @@ final class AppState {
     
     @objc func openSettingsWindow() {
         with(EnvironmentValues()) { env in
-            env.openWindow(id: Constant.settingWindowId)
+            env.openWindow(id: Constants.settingWindowId)
         }
     }
     
