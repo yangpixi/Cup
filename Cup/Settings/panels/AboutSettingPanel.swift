@@ -9,14 +9,15 @@ import SwiftUI
 
 struct AboutSettingPanel: View {
     var body: some View {
-        VStack {
-            mainbody
+        VStack(spacing: 0) {
+            iconAndCopyright
+            toolbar
         }
     }
     
     @ViewBuilder
-    private var mainbody: some View {
-        HStack {
+    private var iconAndCopyright: some View {
+        HStack(spacing: 10) {
             Image(systemName: "cup.and.saucer.fill")
                 .resizable()
                 .scaledToFit()
@@ -35,5 +36,21 @@ struct AboutSettingPanel: View {
                     .foregroundStyle(.tertiary)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.quinary, in: RoundedRectangle(cornerRadius: 20, style: .circular))
+        .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 4)
+        .padding(EdgeInsets(top: -10, leading: 20, bottom: 5, trailing: 20))
     }
+    
+    @ViewBuilder
+    private var toolbar: some View {
+        HStack {
+            Button("Quit Cup") {
+                NSApp.terminate(nil)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+    }
+    
 }
