@@ -10,11 +10,14 @@ import AppKit
 final class MenuBarClickEventHandler: NSObject {
     
     private var btnSwitch: NSStatusItem
+    private var btnSeperator: NSStatusItem
     private weak var appState: AppState?
+    private var isHidden = false // store the status of icon
     
-    init(btnSwitch: NSStatusItem, appState: AppState?) {
+    init(btnSwitch: NSStatusItem, btnSeperator: NSStatusItem, appState: AppState?) {
         self.btnSwitch = btnSwitch
         self.appState = appState
+        self.btnSeperator = btnSeperator
     }
     
     @objc func handleMouseClick() {
@@ -33,6 +36,23 @@ final class MenuBarClickEventHandler: NSObject {
     }
     
     private func switchHideStatus() {
+        guard
+            let button = btnSwitch.button,
+            let seperator = btnSeperator.button
+        else {
+            Logger.handler.error("Fail to get button")
+            return
+        }
+        
+        if isHidden {
+            button.image = NSImage(systemSymbolName: "circle.fill", accessibilityDescription: nil)
+            seperator.image = nil
+            isHidden = false
+        } else {
+            button.image = NSImage(systemSymbolName: "circle", accessibilityDescription: nil)
+            seperator.image = NSImage(named: "ic_line")
+            isHidden = true
+        }
         
     }
     
