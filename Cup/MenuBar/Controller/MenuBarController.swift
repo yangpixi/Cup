@@ -5,7 +5,7 @@
 //  Created by 空白 on 2026/3/10.
 //
 
-import AppKit
+import SwiftUI
 
 class MenuBarController {
     
@@ -15,7 +15,11 @@ class MenuBarController {
     private var btnSwitch = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     private var btnSeperator = NSStatusBar.system.statusItem(withLength: 1)
     
-    private lazy var menuBarClickEventHandler = MenuBarClickEventHandler(btnSwitch: btnSwitch, appState: appState)
+    private lazy var menuBarClickEventHandler = MenuBarClickEventHandler(
+        btnSwitch: btnSwitch,
+        btnSeperator: btnSeperator,
+        appState: appState
+    )
     
     //MARK: - initializing method
     init(appState: AppState) {
@@ -28,10 +32,14 @@ class MenuBarController {
     
     private func initializeBtn() {
         if let button = btnSwitch.button {
-            button.image = NSImage(systemSymbolName: "circle.fill", accessibilityDescription: nil)
+            button.image = NSImage(systemSymbolName: "circle", accessibilityDescription: nil)
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
             button.target = menuBarClickEventHandler
             button.action = #selector(MenuBarClickEventHandler.handleMouseClick)
+        }
+        
+        if let seperator = btnSeperator.button {
+            seperator.image = NSImage(named: "ic_line")
         }
     }
 }
