@@ -47,10 +47,12 @@ final class MenuBarClickEventHandler: NSObject {
         if isHidden {
             button.image = NSImage(systemSymbolName: "circle.fill", accessibilityDescription: nil)
             seperator.image = nil
+            btnSeperator.length = 2000
             isHidden = false
         } else {
             button.image = NSImage(systemSymbolName: "circle", accessibilityDescription: nil)
             seperator.image = NSImage(named: "ic_line")
+            btnSeperator.length = 20
             isHidden = true
         }
         
