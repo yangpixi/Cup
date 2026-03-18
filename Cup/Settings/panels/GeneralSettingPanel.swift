@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import LaunchAtLogin
 
 struct GeneralSettingPanel: View {
     var body: some View {
-        
+        VStack(spacing: 0) {
+            CupGroupBox {
+                LaunchAtLogin.Toggle()
+            }
+        }
+        .frame(maxHeight: .infinity, alignment: .top)
     }
-    
-    
 }

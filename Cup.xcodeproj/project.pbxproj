@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A953DB62F65122F00743860 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 4A953DB52F65122F00743860 /* SwiftUIIntrospect */; };
+		4A953DF92F67D8FA00743860 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4A953DF82F67D8FA00743860 /* LaunchAtLogin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A953DF92F67D8FA00743860 /* LaunchAtLogin in Frameworks */,
 				4A953DB62F65122F00743860 /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +79,7 @@
 			name = Cup;
 			packageProductDependencies = (
 				4A953DB52F65122F00743860 /* SwiftUIIntrospect */,
+				4A953DF82F67D8FA00743860 /* LaunchAtLogin */,
 			);
 			productName = Cup;
 			productReference = 4A953C432F5FDE8C00743860 /* Cup.app */;
@@ -108,6 +111,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				4A953DB42F65122F00743860 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+				4A953DF72F67D8FA00743860 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4A953AA72F5D3FC500743860;
@@ -354,6 +358,14 @@
 				minimumVersion = 26.0.0;
 			};
 		};
+		4A953DF72F67D8FA00743860 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -361,6 +373,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4A953DB42F65122F00743860 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
 			productName = SwiftUIIntrospect;
+		};
+		4A953DF82F67D8FA00743860 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A953DF72F67D8FA00743860 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
+			productName = LaunchAtLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
